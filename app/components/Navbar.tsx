@@ -44,7 +44,7 @@ export default function Navbar() {
           <div className="max-w-[1440px] mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
             <Link href="/" className="flex items-center shrink-0">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/drelt-logo.svg" alt="DRELT" className="h-12 w-auto" />
+              <img src="/drelt-logo.svg" alt="DRELT" className="h-14 w-auto" />
             </Link>
 
             {/* Hamburger button */}

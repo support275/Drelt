@@ -5,7 +5,7 @@ export const metadata = { title: "Pillars — DREEF DRELT" };
 
 export default function PillarsPage() {
   return (
-    <PageShell>
+    <PageShell heading="Assessment Pillars">
       <PillarsContent />
     </PageShell>
   );

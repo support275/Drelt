@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 function EsgIcon() {
   return (
     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -69,7 +71,7 @@ const pillars = [
 export default function ToolkitOverview() {
   return (
     <section id="overview" className="bg-green-pale py-16 sm:py-20">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6">
+      <div className="max-w-360 mx-auto px-4 sm:px-6">
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16">
           {/* Left: pillar cards */}
@@ -88,9 +90,12 @@ export default function ToolkitOverview() {
                   <p className="text-muted text-[15px] leading-relaxed">{pillar.description}</p>
                 </div>
 
-                <button className="self-start bg-green-pale2 text-green-dark text-sm font-medium px-4 py-2 rounded-full">
+                <Link
+                  href="/pillars"
+                  className="self-start bg-green-pale2 text-green-dark text-sm font-medium px-4 py-2 rounded-full hover:bg-green-pale transition-colors"
+                >
                   View more
-                </button>
+                </Link>
               </div>
             ))}
           </div>

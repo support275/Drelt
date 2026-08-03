@@ -142,109 +142,93 @@ const pillars = [
   },
 ];
 
-function PillarRow({ pillar, defaultOpen = false }: { pillar: (typeof pillars)[number]; defaultOpen?: boolean }) {
-  const [open, setOpen] = useState(defaultOpen);
-
+function DetailList({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="bg-white rounded-2xl border border-border overflow-hidden">
-      {/* Header row */}
-      <button
-        onClick={() => setOpen((o) => !o)}
-        className="w-full flex items-center gap-4 px-6 py-5 text-left hover:bg-green-pale/40 transition-colors"
-      >
-        <div className="w-11 h-11 rounded-xl bg-green-pale flex items-center justify-center shrink-0 text-xl">
-          {pillar.icon}
-        </div>
-        <div className="flex-1 min-w-0">
-          <p className="font-semibold text-ink" style={{ fontSize: 15 }}>{pillar.title}</p>
-          <p className="text-muted mt-0.5 truncate" style={{ fontSize: 13 }}>{pillar.description}</p>
-        </div>
-        <span className="text-muted text-lg shrink-0">{open ? "▲" : "▼"}</span>
-      </button>
-
-      {/* Expanded content */}
-      {open && (
-        <div className="px-6 pb-6 flex flex-col gap-4 border-t border-border">
-          {/* Three columns */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
-            {/* Key Checks */}
-            <div className="bg-green-pale rounded-xl border border-green-mid/20 p-4">
-              <p className="text-gold font-bold uppercase mb-3" style={{ fontSize: 11, letterSpacing: "1px", marginBottom: 6 }}>
-                ✅ Key Checks
-              </p>
-              <ul className="flex flex-col gap-2">
-                {pillar.checks.map((c, i) => (
-                  <li key={i} className="flex gap-2 text-ink-soft" style={{ fontSize: 13 }}>
-                    <span className="text-green-mid mt-0.5 shrink-0">·</span>
-                    {c}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Red Flags */}
-            <div className="bg-red-pale rounded-xl border border-red/20 p-4">
-              <p className="text-gold font-bold uppercase mb-3" style={{ fontSize: 11, letterSpacing: "1px", marginBottom: 6 }}>
-                🚩 Red Flags
-              </p>
-              <ul className="flex flex-col gap-2">
-                {pillar.flags.map((f, i) => (
-                  <li key={i} className="flex gap-2 text-ink-soft" style={{ fontSize: 13 }}>
-                    <span className="text-red mt-0.5 shrink-0">·</span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Mitigants */}
-            <div className="bg-[#FDF6EC] rounded-xl border border-amber/20 p-4">
-              <p className="text-gold font-bold uppercase mb-3" style={{ fontSize: 11, letterSpacing: "1px", marginBottom: 6 }}>
-                🛡️ Mitigants
-              </p>
-              <ul className="flex flex-col gap-2">
-                {pillar.mitigants.map((m, i) => (
-                  <li key={i} className="flex gap-2 text-ink-soft" style={{ fontSize: 13 }}>
-                    <span className="text-amber mt-0.5 shrink-0">·</span>
-                    {m}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Mini case example */}
-          <div className="bg-[#FDF6EC] rounded-xl border border-amber/20 p-4">
-            <p className="text-gold font-bold uppercase" style={{ fontSize: 11, letterSpacing: "1px", marginBottom: 6 }}>
-              📋 Mini Case Example
-            </p>
-            <p className="text-ink-soft leading-relaxed" style={{ fontSize: 13 }}>
-              {pillar.caseExample}
-            </p>
-          </div>
-        </div>
-      )}
+    <div>
+      <p className="font-bold text-ink mb-3 text-[15px]">{title}</p>
+      <ol className="flex flex-col gap-2.5 list-decimal list-inside">
+        {items.map((item, i) => (
+          <li key={i} className="text-ink-soft text-[15px] leading-relaxed">
+            {item}
+          </li>
+        ))}
+      </ol>
     </div>
   );
 }
 
 export default function PillarsContent() {
+  const [active, setActive] = useState<number | null>(0);
+  const activePillar = active !== null ? pillars[active] : null;
+
   return (
-    <section id="pillars" className="bg-green-pale py-16">
+    <section id="pillars" className="bg-[#EFF2F0] py-16">
       <div className="max-w-350 mx-auto px-4 sm:px-6">
-        <h2 className="font-serif font-bold text-green-dark" style={{ fontSize: 28, marginBottom: 8 }}>
-          Assessment Pillars
-        </h2>
-        <p className="text-muted mb-8" style={{ fontSize: 14 }}>
-          Four core pillars guide credit assessment. Expand each to view key checks, red flags and mitigants.
-        </p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
 
-        <hr className="border-border mb-8" />
+          {/* Left: pillar list */}
+          <div className="flex flex-col gap-5">
+            {pillars.map((pillar, i) => (
+              <div key={pillar.title} className="bg-white rounded-2xl p-6 flex flex-col gap-3">
+                <div className="w-12 h-12 rounded-xl bg-green-pale flex items-center justify-center text-xl shrink-0">
+                  {pillar.icon}
+                </div>
+                <div>
+                  <h3 className="font-heading font-bold text-green-dark text-lg mb-1">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-ink-soft text-[13px] leading-relaxed">{pillar.description}</p>
+                </div>
+                <button
+                  onClick={() => setActive(i)}
+                  className="self-start bg-green-pale text-green-dark text-sm font-medium px-4 py-2 rounded-full hover:bg-green-pale2 transition-colors"
+                >
+                  View more
+                </button>
+              </div>
+            ))}
+          </div>
 
-        <div className="flex flex-col gap-4">
-          {pillars.map((pillar, i) => (
-            <PillarRow key={pillar.title} pillar={pillar} defaultOpen={i === 0} />
-          ))}
+          {/* Right: detail panel */}
+          <div className="lg:sticky lg:top-32">
+            {activePillar ? (
+              <div className="bg-white rounded-2xl p-8">
+                <div className="flex items-start justify-between mb-6">
+                  <h2 className="font-heading font-bold text-green-dark text-3xl">
+                    {activePillar.title}
+                  </h2>
+                  <button
+                    onClick={() => setActive(null)}
+                    aria-label="Close"
+                    className="w-9 h-9 rounded-full bg-ink/5 hover:bg-ink/10 flex items-center justify-center transition-colors shrink-0 text-lg"
+                  >
+                    ×
+                  </button>
+                </div>
+                <hr className="border-border mb-6" />
+
+                <div className="flex flex-col gap-6">
+                  <DetailList title="Key Checks" items={activePillar.checks} />
+                  <hr className="border-border" />
+                  <DetailList title="Red Flags" items={activePillar.flags} />
+                  <hr className="border-border" />
+                  <DetailList title="Mitigants" items={activePillar.mitigants} />
+                  <hr className="border-border" />
+                  <div>
+                    <p className="font-bold text-ink mb-3 text-[15px]">Mini Case Example</p>
+                    <p className="text-ink-soft text-[15px] leading-relaxed">
+                      {activePillar.caseExample}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="bg-white rounded-2xl p-8 flex items-center justify-center text-muted text-sm min-h-100">
+                Select a pillar to view details
+              </div>
+            )}
+          </div>
+
         </div>
       </div>
     </section>
