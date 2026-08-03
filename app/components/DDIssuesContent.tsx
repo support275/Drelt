@@ -21,89 +21,80 @@ const issues = [
     weakness: "UBO disclosure incomplete or offshore parent not reconciled",
     quickCheck: "Check CAC filings, require PEP declaration, reconcile with parent structure",
     classification: "pre-nbc" as Classification,
-    precedent: "Multiple NBCs flagged UBO gaps (e.g., Maskh, EtinPower)",
+    action: "Multiple NBCs flagged UBO gaps (e.g., Maskh, EtinPower)",
   },
   {
     area: "EPC/OEM Identification",
     weakness: "EPC/OEM listed as TBD at NBC",
     quickCheck: "Confirm EPC/OEM contracted with track record and warranties",
     classification: "pre-nbc" as Classification,
-    precedent: "Frontier Solar delayed until EPC identified",
+    action: "Frontier Solar delayed until EPC identified",
   },
   {
     area: "Demand Forecasting",
     weakness: "No raw survey data, assumptions unrealistic vs benchmarks",
     quickCheck: "Check survey samples and link to model inputs",
     classification: "due-diligence" as Classification,
-    precedent: "CEESOLAR flagged for weak demand forecast methodology",
+    action: "CEESOLAR flagged for weak demand forecast methodology",
   },
   {
     area: "Financial Model",
     weakness: "Equity only commitment letters, no bank proof",
     quickCheck: "Require cash evidence of ≥20% equity contribution",
     classification: "pre-nbc" as Classification,
-    precedent: "C&I rooftop project paused until equity confirmed",
+    action: "C&I rooftop project paused until equity confirmed",
   },
   {
     area: "Subsidy/Grant Disclosure",
     weakness: "Grant reliance not disclosed in NBC paper, only in model",
     quickCheck: "Ensure subsidy reliance disclosed with signed agreements",
     classification: "pre-nbc" as Classification,
-    precedent: "DARES subsidy flagged in multiple NBCs (Ashipa, CEESOLAR)",
+    action: "DARES subsidy flagged in multiple NBCs (Ashipa, CEESOLAR)",
   },
   {
     area: "Legal Contracts",
     weakness: "MoUs presented as PPAs, land rights not secured",
     quickCheck: "Require executed PPAs ≥10 years, proof of lease/title",
     classification: "pre-nbc" as Classification,
-    precedent: "Protergia and Sosai flagged for contract weaknesses",
+    action: "Protergia and Sosai flagged for contract weaknesses",
   },
   {
     area: "ESG Compliance",
     weakness: "No recycling/e-waste plan, weak gender metrics",
     quickCheck: "Check recycling plan, IFC PS compliance, gender inclusion KPIs",
     classification: "due-diligence" as Classification,
-    precedent: "Darway Coast flagged for weak ESG plan",
+    action: "Darway Coast flagged for weak ESG plan",
   },
   {
     area: "Productive Use of Energy",
     weakness: "No rollout plan, anchors missing, demand assumed from COD",
     quickCheck: "Check phased PUE plan (12–18m post-COD), anchor pipeline, breakeven mix",
     classification: "due-diligence" as Classification,
-    precedent: "CEESOLAR and Ashipa flagged for lack of PUE strategy",
+    action: "CEESOLAR and Ashipa flagged for lack of PUE strategy",
   },
 ];
 
-const headers = ["Issue Area", "Typical Weakness", "Quick Check", "Classification", "Precedent Example"];
+const headers = ["Issue Area", "Typical Weakness", "Quick Check", "Classification", "Action taken"];
 
 export default function DDIssuesContent() {
   return (
-    <section id="dd-issues" className="bg-white py-16 min-h-screen">
+    <section id="dd-issues" className="bg-[#FCFCFC] py-16">
       <div className="max-w-350 mx-auto px-4 sm:px-6">
 
-        {/* Header */}
-        <h2 className="font-serif font-bold text-green-dark" style={{ fontSize: 28, marginBottom: 8 }}>
-          Repetitive Due Diligence Issues
-        </h2>
-        <p className="text-muted" style={{ fontSize: 14 }}>
-          Common issues repeatedly identified across past NBC submissions, MROC minutes, technical adviser feedback
+        <p className="text-ink-soft mb-12 text-[15px] leading-relaxed max-w-175">
+          Common issues repeatedly identified across past NBC submissions, MROC minutes, technical
+          adviser feedback and transactor responses.
         </p>
-        <p className="text-muted mb-8" style={{ fontSize: 14 }}>
-          and transactor responses.
-        </p>
-
-        <hr className="border-border mb-10" />
 
         {/* Table */}
-        <div className="rounded-2xl border border-border overflow-hidden overflow-x-auto">
+        <div className="rounded-2xl overflow-hidden overflow-x-auto shadow-sm bg-white">
           <table className="w-full border-collapse min-w-225">
             <thead>
               <tr className="bg-green-dark">
                 {headers.map((h) => (
                   <th
                     key={h}
-                    className="text-left px-5 py-4 text-white font-semibold uppercase tracking-[0.08em]"
-                    style={{ fontSize: 11 }}
+                    className="text-left px-5 py-4 text-white font-semibold uppercase tracking-[0.08em] text-[11px]"
                   >
                     {h}
                   </th>
@@ -113,25 +104,24 @@ export default function DDIssuesContent() {
             <tbody>
               {issues.map((issue, i) => (
                 <tr key={i} className="border-t border-border hover:bg-green-pale/30 transition-colors">
-                  <td className="px-5 py-4 align-top font-semibold text-ink whitespace-nowrap" style={{ fontSize: 13 }}>
+                  <td className="px-5 py-4 align-top font-heading font-bold text-[#080808] whitespace-nowrap text-[13px]">
                     {issue.area}
                   </td>
-                  <td className="px-5 py-4 align-top text-ink-soft leading-relaxed" style={{ fontSize: 13 }}>
+                  <td className="px-5 py-4 align-top text-ink-soft leading-relaxed text-[13px]">
                     {issue.weakness}
                   </td>
-                  <td className="px-5 py-4 align-top text-ink-soft leading-relaxed" style={{ fontSize: 13 }}>
+                  <td className="px-5 py-4 align-top text-ink-soft leading-relaxed text-[13px]">
                     {issue.quickCheck}
                   </td>
                   <td className="px-5 py-4 align-top">
                     <span
-                      className={`inline-flex items-center px-2.5 py-1 rounded-full font-bold whitespace-nowrap ${badge[issue.classification].className}`}
-                      style={{ fontSize: 10, letterSpacing: "0.06em" }}
+                      className={`inline-flex items-center px-2.5 py-1 rounded-full font-bold whitespace-nowrap tracking-[0.06em] text-[10px] ${badge[issue.classification].className}`}
                     >
                       {badge[issue.classification].label}
                     </span>
                   </td>
-                  <td className="px-5 py-4 align-top text-ink-soft leading-relaxed" style={{ fontSize: 13 }}>
-                    {issue.precedent}
+                  <td className="px-5 py-4 align-top text-ink-soft leading-relaxed text-[13px]">
+                    {issue.action}
                   </td>
                 </tr>
               ))}

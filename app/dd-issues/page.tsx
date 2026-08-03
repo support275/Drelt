@@ -5,7 +5,14 @@ export const metadata = { title: "DD Issues — DREEF DRELT" };
 
 export default function DDIssuesPage() {
   return (
-    <PageShell>
+    <PageShell
+      heading={
+        <>
+          <span className="block">Repetitive Due</span>
+          <span className="block">Diligence Issues</span>
+        </>
+      }
+    >
       <DDIssuesContent />
     </PageShell>
   );

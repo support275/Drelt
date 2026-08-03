@@ -4,13 +4,15 @@ const steps = [
   {
     n: 1,
     title: "Origination & Screening",
-    description: "Eligibility criteria applied. Basic sponsor and project checks completed.",
+    description:
+      "Eligibility criteria applied. Basic sponsor and project checks completed.",
     duration: "1–2 months",
   },
   {
     n: 2,
     title: "NBC Preparation",
-    description: "Smart NBC Review Tool and FAQs used to flag potential blockers.",
+    description:
+      "Smart NBC Review Tool and FAQs used to flag potential blockers.",
     duration: "1 month",
   },
   {
@@ -22,7 +24,8 @@ const steps = [
   {
     n: 4,
     title: "Due Diligence",
-    description: "Independent advisers validate DD items (technical, legal, financial, ESG).",
+    description:
+      "Independent advisers validate DD items (technical, legal, financial, ESG).",
     duration: "2–3 months",
   },
   {
@@ -34,81 +37,84 @@ const steps = [
   {
     n: 6,
     title: "Financial Close & Post-Close",
-    description: "CPs satisfied before disbursement. Handover to monitoring team.",
+    description:
+      "CPs satisfied before disbursement. Handover to monitoring team.",
     duration: "1–2 months",
   },
 ];
 
 export default function WorkflowContent() {
   return (
-    <section id="workflow" className="bg-white py-16 min-h-screen">
+    <>
+    <section id="workflow" className="bg-[#EFF2F0] py-16">
       <div className="max-w-350 mx-auto px-4 sm:px-6">
+        <div className="max-w-217 mx-auto">
+          <p className="text-ink-soft mb-12 text-[15px] leading-relaxed max-w-175">
+            How DRELT integrates into InfraCredit&apos;s project lifecycle from
+            origination through portfolio monitoring.
+          </p>
 
-        {/* Header */}
-        <h2 className="font-serif font-bold text-green-dark" style={{ fontSize: 28, marginBottom: 8 }}>
-          Implementation Workflow
-        </h2>
-        <p className="text-muted mb-8" style={{ fontSize: 14 }}>
-          How DRELT integrates into InfraCredit&apos;s project lifecycle from origination through portfolio monitoring.
-        </p>
-
-        <hr className="border-border mb-10" />
-
-        {/* Steps */}
-        <div className="flex flex-col lg:flex-row items-stretch gap-0">
-          {steps.flatMap((step, i) => {
-            const card = (
-              <div key={`card-${step.n}`} className="flex-1 bg-white border border-border rounded-2xl p-5 flex flex-col gap-3 transition-colors hover:border-green-dark">
-                <div className="w-10 h-10 rounded-full bg-green-dark flex items-center justify-center shrink-0">
-                  <span className="text-white font-bold" style={{ fontSize: 15 }}>{step.n}</span>
+          {/* Steps */}
+          <div className="flex flex-col gap-4">
+            {steps.map((step) => (
+              <div
+                key={step.n}
+                className="bg-white rounded-2xl p-6 flex flex-col gap-3"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="bg-green-pale2 text-green-dark text-[11px] font-semibold px-3 py-1 rounded-full uppercase tracking-wide">
+                    Step {step.n}
+                  </span>
+                  <span className="text-gold text-[11px] font-semibold uppercase tracking-wide">
+                    {step.duration}
+                  </span>
                 </div>
-                <p className="font-bold text-ink uppercase tracking-[0.06em] leading-tight" style={{ fontSize: 11 }}>
+                <h3 className="font-heading font-bold text-green-dark text-xl">
                   {step.title}
-                </p>
-                <p className="text-ink-soft leading-relaxed flex-1" style={{ fontSize: 13 }}>
+                </h3>
+                <p className="text-ink-soft text-[15px] leading-relaxed">
                   {step.description}
                 </p>
-                <p className="text-gold font-semibold" style={{ fontSize: 12 }}>
-                  {step.duration}
-                </p>
               </div>
-            );
-            if (i < steps.length - 1) {
-              return [
-                card,
-                <div key={`arrow-${step.n}`} className="hidden lg:flex items-center justify-center shrink-0 px-2">
-                  <span style={{ fontSize: 18, color: "#C89739" }}>→</span>
-                </div>,
-              ];
-            }
-            return [card];
-          })}
-        </div>
-
-        {/* Total Timeline */}
-        <div className="mt-6 bg-white border border-border rounded-2xl px-6 py-4 flex items-center gap-3">
-          <span className="text-xl">🕐</span>
-          <p className="font-serif font-bold text-green-dark" style={{ fontSize: 18 }}>
-            Total Timeline: 6–9 months (origination to close)
-          </p>
-        </div>
-
-        {/* RACI Responsibilities */}
-        <div className="mt-6 bg-white border border-border rounded-2xl overflow-hidden">
-          <div className="px-6 py-4 border-b border-border">
-            <h3 className="font-serif font-bold text-green-dark" style={{ fontSize: 18 }}>
-              RACI Responsibilities
-            </h3>
+            ))}
           </div>
-          <div className="overflow-x-auto">
+
+          {/* Total Timeline */}
+          <div className="mt-6 bg-white border border-border rounded-2xl px-6 py-4 flex items-center gap-3">
+            <span className="text-xl">🕐</span>
+            <p
+              className="font-serif font-bold text-green-dark"
+              style={{ fontSize: 18 }}
+            >
+              Total Timeline: 6–9 months (origination to close)
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* RACI Responsibilities */}
+    <section className="bg-white py-16">
+      <div className="max-w-350 mx-auto px-4 sm:px-6">
+          <h2 className="font-heading font-bold text-[#080808] text-[40px] mb-4">
+            RACI Responsibilities
+          </h2>
+          <hr className="border-border mb-8" />
+
+          <div className="rounded-2xl overflow-hidden overflow-x-auto shadow-sm bg-white">
             <table className="w-full border-collapse min-w-200">
               <thead>
                 <tr className="bg-green-dark">
-                  {["Stage", "Responsible (R)", "Accountable (A)", "Consulted (C)", "Informed (I)"].map((h) => (
+                  {[
+                    "Stage",
+                    "Responsible (R)",
+                    "Accountable (A)",
+                    "Consulted (C)",
+                    "Informed (I)",
+                  ].map((h) => (
                     <th
                       key={h}
-                      className="text-left px-5 py-3 text-white font-semibold uppercase tracking-[0.08em]"
-                      style={{ fontSize: 11 }}
+                      className="text-left px-5 py-3 text-white font-semibold uppercase tracking-[0.08em] text-[11px]"
                     >
                       {h}
                     </th>
@@ -117,19 +123,57 @@ export default function WorkflowContent() {
               </thead>
               <tbody>
                 {[
-                  ["Origination & Screening", "Origination Analyst", "Head, Origination", "Legal, ESG Specialists", "PMT"],
-                  ["NBC Preparation", "Deal Analyst", "Head, PMT", "Technical Adviser, ESG Adviser", "MROC Secretariat"],
-                  ["NBC Review", "PMT", "Chief Risk Officer", "Transactor, Legal", "MROC Members"],
-                  ["Due Diligence", "PMT", "CRO & Head, PMT", "External Consultants", "Transactor"],
-                  ["Credit Committee", "Risk Division", "CRO", "PMT, Legal, Finance", "CC Members"],
-                  ["Financial Close & Post-Close", "Legal & Portfolio Mgmt", "Head, Portfolio Mgmt", "PMT, Risk", "Board, Lenders"],
+                  [
+                    "Origination & Screening",
+                    "Origination Analyst",
+                    "Head, Origination",
+                    "Legal, ESG Specialists",
+                    "PMT",
+                  ],
+                  [
+                    "NBC Preparation",
+                    "Deal Analyst",
+                    "Head, PMT",
+                    "Technical Adviser, ESG Adviser",
+                    "MROC Secretariat",
+                  ],
+                  [
+                    "NBC Review",
+                    "PMT",
+                    "Chief Risk Officer",
+                    "Transactor, Legal",
+                    "MROC Members",
+                  ],
+                  [
+                    "Due Diligence",
+                    "PMT",
+                    "CRO & Head, PMT",
+                    "External Consultants",
+                    "Transactor",
+                  ],
+                  [
+                    "Credit Committee",
+                    "Risk Division",
+                    "CRO",
+                    "PMT, Legal, Finance",
+                    "CC Members",
+                  ],
+                  [
+                    "Financial Close & Post-Close",
+                    "Legal & Portfolio Mgmt",
+                    "Head, Portfolio Mgmt",
+                    "PMT, Risk",
+                    "Board, Lenders",
+                  ],
                 ].map((row, i) => (
-                  <tr key={i} className="border-t border-border hover:bg-green-pale/30 transition-colors">
+                  <tr
+                    key={i}
+                    className="border-t border-border hover:bg-green-pale/30 transition-colors"
+                  >
                     {row.map((cell, j) => (
                       <td
                         key={j}
-                        className={`px-5 py-4 text-ink-soft leading-relaxed ${j === 0 ? "font-semibold text-ink" : ""}`}
-                        style={{ fontSize: 13 }}
+                        className={`px-5 py-4 text-ink-soft leading-relaxed text-[13px] ${j === 0 ? "font-heading font-bold text-[#080808]" : ""}`}
                       >
                         {cell}
                       </td>
@@ -139,9 +183,8 @@ export default function WorkflowContent() {
               </tbody>
             </table>
           </div>
-        </div>
-
       </div>
     </section>
+    </>
   );
 }
