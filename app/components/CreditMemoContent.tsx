@@ -75,11 +75,34 @@ const sections: Section[] = [
     kind: "table",
     title: "Risk Analysis & Mitigants",
     rows: [
-      { category: "Construction Risk", description: "Delay in EPC/OEM delivery, cost overruns", mitigants: "Contracted EPC with track record, warranties, performance bonds" },
-      { category: "Demand Risk", description: "Lower consumption or delayed PUE uptake", mitigants: "Phased rollout, anchor customers secured, sensitivity modelling" },
-      { category: "Regulatory Risk", description: "Licences/permits delayed or revoked", mitigants: "NERC/state permits obtained pre-disbursement, legal DD" },
-      { category: "Financial Risk", description: "Equity shortfall, reliance on subsidies", mitigants: "Bank evidence of equity, disclose grants, stress-test model" },
-      { category: "ESG Risk", description: "Battery disposal, weak gender inclusion", mitigants: "Recycling plan, ESG KPIs, IFC PS compliance" },
+      {
+        category: "Construction Risk",
+        description: "Delay in EPC/OEM delivery, cost overruns",
+        mitigants:
+          "Contracted EPC with track record, warranties, performance bonds",
+      },
+      {
+        category: "Demand Risk",
+        description: "Lower consumption or delayed PUE uptake",
+        mitigants:
+          "Phased rollout, anchor customers secured, sensitivity modelling",
+      },
+      {
+        category: "Regulatory Risk",
+        description: "Licences/permits delayed or revoked",
+        mitigants: "NERC/state permits obtained pre-disbursement, legal DD",
+      },
+      {
+        category: "Financial Risk",
+        description: "Equity shortfall, reliance on subsidies",
+        mitigants:
+          "Bank evidence of equity, disclose grants, stress-test model",
+      },
+      {
+        category: "ESG Risk",
+        description: "Battery disposal, weak gender inclusion",
+        mitigants: "Recycling plan, ESG KPIs, IFC PS compliance",
+      },
     ],
   },
   {
@@ -120,77 +143,104 @@ const sections: Section[] = [
 function MemoSection({ section, index }: { section: Section; index: number }) {
   const [open, setOpen] = useState(index === 0);
   return (
-    <div className="rounded-2xl overflow-hidden border border-border">
+    <div
+      className={`rounded-2xl transition-colors ${open ? "bg-green-dark" : "bg-green-pale"}`}
+    >
       <button
         onClick={() => setOpen((o) => !o)}
-        className="w-full flex items-center justify-between bg-green-dark px-6 py-4 text-left"
+        className="w-full flex items-center gap-3 px-6 py-4 text-left"
       >
-        <span className="font-serif font-bold text-white" style={{ fontSize: 15 }}>
+        <span
+          className={`font-heading font-bold flex-1 text-[17px] ${open ? "text-white" : "text-green-dark"}`}
+        >
           {index + 1}. {section.title}
         </span>
-        <span className="text-white/70 text-lg">{open ? "▲" : "▼"}</span>
+        <span
+          className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-white text-lg leading-none ${open ? "bg-gold" : "bg-green-dark"}`}
+        >
+          {open ? "×" : "+"}
+        </span>
       </button>
-      {open && (
-        section.kind === "table" ? (
-          <div className="bg-white overflow-x-auto">
-            <table className="w-full border-collapse" style={{ fontSize: 13 }}>
-              <thead>
-                <tr className="bg-ink text-white">
-                  <th className="text-left px-6 py-3 font-bold uppercase" style={{ fontSize: 11, letterSpacing: "0.08em", width: "22%" }}>Risk Category</th>
-                  <th className="text-left px-6 py-3 font-bold uppercase" style={{ fontSize: 11, letterSpacing: "0.08em", width: "39%" }}>Description</th>
-                  <th className="text-left px-6 py-3 font-bold uppercase" style={{ fontSize: 11, letterSpacing: "0.08em" }}>Mitigants</th>
-                </tr>
-              </thead>
-              <tbody>
-                {section.rows.map((row, i) => (
-                  <tr key={i} className="border-t border-border">
-                    <td className="px-6 py-3 font-bold text-ink" style={{ fontSize: 13 }}>{row.category}</td>
-                    <td className="px-6 py-3 text-ink-soft leading-relaxed">{row.description}</td>
-                    <td className="px-6 py-3 text-ink-soft leading-relaxed">{row.mitigants}</td>
-                  </tr>
+      <div
+        className={`grid transition-all duration-300 ease-in-out ${open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
+      >
+        <div className="overflow-hidden">
+          <div className="px-6 pb-6">
+            {section.kind === "table" ? (
+              <div className="bg-white rounded-xl overflow-hidden overflow-x-auto">
+                <table className="w-full border-collapse text-[13px]">
+                  <thead>
+                    <tr className="bg-ink text-white">
+                      <th className="text-left px-6 py-3 font-bold uppercase text-[11px] tracking-[0.08em] w-[22%]">
+                        Risk Category
+                      </th>
+                      <th className="text-left px-6 py-3 font-bold uppercase text-[11px] tracking-[0.08em] w-[39%]">
+                        Description
+                      </th>
+                      <th className="text-left px-6 py-3 font-bold uppercase text-[11px] tracking-[0.08em]">
+                        Mitigants
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {section.rows.map((row, i) => (
+                      <tr key={i} className="border-t border-border">
+                        <td className="px-6 py-3 font-bold text-ink">
+                          {row.category}
+                        </td>
+                        <td className="px-6 py-3 text-ink-soft leading-relaxed">
+                          {row.description}
+                        </td>
+                        <td className="px-6 py-3 text-ink-soft leading-relaxed">
+                          {row.mitigants}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <ul className="bg-white rounded-xl overflow-hidden">
+                {section.items.map((item, i) => (
+                  <li
+                    key={i}
+                    className="flex items-center gap-2 text-ink-soft px-6 py-4 border-b border-border/60 last:border-0 text-[13px]"
+                  >
+                    <span className="text-green-mid shrink-0">▸</span>
+                    {item}
+                  </li>
                 ))}
-              </tbody>
-            </table>
+              </ul>
+            )}
           </div>
-        ) : (
-          <ul className="bg-white">
-            {section.items.map((item, i) => (
-              <li
-                key={i}
-                className="flex items-start gap-3 px-6 py-3 border-b border-border last:border-0 text-ink-soft leading-relaxed"
-                style={{ fontSize: 13 }}
-              >
-                <span className="text-green-mid shrink-0 mt-0.5">→</span>
-                {item}
-              </li>
-            ))}
-          </ul>
-        )
-      )}
+        </div>
+      </div>
     </div>
   );
 }
 
 export default function CreditMemoContent() {
   return (
-    <section id="credit-memo" className="bg-green-pale py-16 min-h-screen">
+    <section id="credit-memo" className="bg-white py-16">
       <div className="max-w-350 mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          {/* Left: sticky header */}
+          <div className="lg:sticky lg:top-32 lg:self-start">
+            <h2 className="font-heading font-bold text-[#080808] text-[32px] leading-tight mb-4 w-full md:max-w-md">
+              Structured template for credit committee submissions.
+            </h2>
+            <p className="text-muted text-base leading-relaxed">
+              Expand each section to view required content.
+            </p>
+          </div>
 
-        <h2 className="font-serif font-bold text-green-dark" style={{ fontSize: 28, marginBottom: 8 }}>
-          Credit Memo Template
-        </h2>
-        <p className="text-muted mb-8" style={{ fontSize: 14 }}>
-          Structured template for Credit Committee submissions. Expand each section to view required content.
-        </p>
-
-        <hr className="border-border mb-8" />
-
-        <div className="flex flex-col gap-4">
-          {sections.map((section, i) => (
-            <MemoSection key={section.title} section={section} index={i} />
-          ))}
+          {/* Right: accordion */}
+          <div className="flex flex-col gap-4">
+            {sections.map((section, i) => (
+              <MemoSection key={section.title} section={section} index={i} />
+            ))}
+          </div>
         </div>
-
       </div>
     </section>
   );

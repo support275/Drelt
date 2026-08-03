@@ -18,7 +18,7 @@ const pageOrder = [
 function FooterArt() {
   return (
     <svg
-      className="absolute top-0 right-0 w-[764px] h-159.25 pointer-events-none hidden lg:block"
+      className="absolute top-0 right-0 w-[380px] h-[317px] sm:w-[500px] sm:h-[417px] lg:w-[764px] lg:h-159.25 pointer-events-none hidden sm:block"
       viewBox="0 0 764 637"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -5,7 +5,7 @@ export const metadata = { title: "Glossary — DREEF DRELT" };
 
 export default function GlossaryPage() {
   return (
-    <PageShell>
+    <PageShell heading="Glossary of Terms">
       <GlossaryContent />
     </PageShell>
   );

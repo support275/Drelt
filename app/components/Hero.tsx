@@ -51,7 +51,7 @@ function StatCard({ stat }: { stat: (typeof stats)[number] }) {
 function HeroArt() {
   return (
     <svg
-      className="absolute top-0 right-0 w-[764px] h-[760px] pointer-events-none hidden lg:block"
+      className="absolute top-0 right-0 w-[380px] h-[378px] sm:w-[500px] sm:h-[497px] lg:w-[764px] lg:h-[760px] pointer-events-none hidden sm:block"
       viewBox="0 0 764 760"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +67,7 @@ function HeroArt() {
 export default function Hero({ heading }: { heading?: React.ReactNode }) {
   return (
     <section
-      className={`relative overflow-hidden bg-green-dark flex items-end ${heading ? "h-125" : "h-190"}`}
+      className={`relative overflow-hidden bg-green-dark flex items-end ${heading ? "h-100 sm:h-125" : "h-165 sm:h-190"}`}
     >
       <HeroArt />
 

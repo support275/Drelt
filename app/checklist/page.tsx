@@ -5,7 +5,14 @@ export const metadata = { title: "Checklist — DREEF DRELT" };
 
 export default function ChecklistPage() {
   return (
-    <PageShell>
+    <PageShell
+      heading={
+        <>
+          <span className="block">Due Diligence</span>
+          <span className="block">Outputs Checklist</span>
+        </>
+      }
+    >
       <ChecklistContent />
     </PageShell>
   );

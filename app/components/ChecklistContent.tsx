@@ -17,11 +17,10 @@ const tagLabel: Record<Tag, string> = {
 };
 
 type Item = { label: string; tag: Tag };
-type Section = { icon: string; title: string; items: Item[] };
+type Section = { title: string; items: Item[] };
 
 const sections: Section[] = [
   {
-    icon: "🌿",
     title: "ESG / Environmental & Social",
     items: [
       { label: "EIA Certificate", tag: "pre-nbc" },
@@ -35,7 +34,6 @@ const sections: Section[] = [
     ],
   },
   {
-    icon: "⚙️",
     title: "Technical",
     items: [
       { label: "EPC/OEM Contracted (named, track record, warranties)", tag: "pre-nbc" },
@@ -48,7 +46,6 @@ const sections: Section[] = [
     ],
   },
   {
-    icon: "⚖️",
     title: "Legal",
     items: [
       { label: "UBO Disclosure reconciled with CAC filings", tag: "pre-nbc" },
@@ -62,7 +59,6 @@ const sections: Section[] = [
     ],
   },
   {
-    icon: "📊",
     title: "Finance",
     items: [
       { label: "Cash Equity Evidence ≥20% (bank statement)", tag: "pre-nbc" },
@@ -76,7 +72,6 @@ const sections: Section[] = [
     ],
   },
   {
-    icon: "⚡",
     title: "Productive Use of Energy (PUE)",
     items: [
       { label: "PUE Rollout Plan (phased, 12–18m post-COD)", tag: "dd-item" },
@@ -106,18 +101,12 @@ export default function ChecklistContent() {
   const pct = Math.round((completed / total) * 100);
 
   return (
-    <section id="checklist" className="bg-green-pale py-16 min-h-screen">
+    <section id="checklist" className="bg-white py-16">
       <div className="max-w-350 mx-auto px-4 sm:px-6">
 
-        {/* Header */}
-        <h2 className="font-serif font-bold text-green-dark text-[28px] mb-2">
-          Due Diligence Outputs Checklist
-        </h2>
-        <p className="text-muted mb-8 text-sm">
+        <p className="text-ink-soft mb-12 text-[15px] leading-relaxed max-w-175">
           Track your project&apos;s DD readiness across all pillars. Check off items as they are completed.
         </p>
-
-        <hr className="border-border mb-8" />
 
         {/* Progress bar */}
         <div className="flex items-center gap-4 mb-8">
@@ -135,10 +124,9 @@ export default function ChecklistContent() {
         {/* Sections */}
         <div className="flex flex-col gap-5">
           {sections.map((section) => (
-            <div key={section.title} className="bg-white border border-border rounded-2xl overflow-hidden">
-              <div className="px-6 py-4 border-b border-border flex items-center gap-2">
-                <span className="text-lg">{section.icon}</span>
-                <h3 className="font-serif font-bold text-green-dark text-[17px]">
+            <div key={section.title} className="bg-[#FCFCFC] rounded-2xl overflow-hidden shadow-sm">
+              <div className="px-6 py-4 border-b border-border">
+                <h3 className="font-heading font-bold text-[#080808] text-[17px]">
                   {section.title}
                 </h3>
               </div>
