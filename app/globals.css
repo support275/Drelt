@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+:root {
+  /* Fonts */
+  --serif:   var(--font-serif), Georgia, serif;
+  --sans:    var(--font-sans), system-ui, sans-serif;
+  --mono:    var(--font-mono), monospace;
+  --heading: var(--font-jakarta), system-ui, sans-serif;
+
+  /* Greens */
+  --green-dark:  #1A5632;
+  --green-mid:   #2E7D46;
+  --green-light: #2E7B46;
+  --green-pale:  #EDF5F0;
+  --green-pale2: #D6EAE0;
+
+  /* Golds */
+  --gold:        #C8973A;
+  --gold-light:  #E5B86A;
+  --gold-pale:   #FDF6EC;
+
+  /* Accent */
+  --lime:        #7CBD42;
+
+  /* Neutrals */
+  --white:       #FFFFFF;
+  --ink:         #0E2318;
+  --ink-soft:    #2C4A38;
+  --muted:       #6B8F78;
+  --border:      #C5DCCB;
+
+  /* Semantic */
+  --red:         #C0392B;
+  --red-pale:    #FDEDEC;
+  --amber:       #D4860A;
+  --amber-pale:  #FEF9EC;
+  --blue:        #1A5276;
+  --blue-pale:   #EAF2FB;
+}
+
+@theme inline {
+  --font-sans:    var(--sans);
+  --font-serif:   var(--serif);
+  --font-mono:    var(--mono);
+  --font-heading: var(--heading);
+
+  --color-green-dark:  var(--green-dark);
+  --color-green-mid:   var(--green-mid);
+  --color-green-light: var(--green-light);
+  --color-green-pale:  var(--green-pale);
+  --color-green-pale2: var(--green-pale2);
+
+  --color-gold:        var(--gold);
+  --color-gold-light:  var(--gold-light);
+  --color-gold-pale:   var(--gold-pale);
+
+  --color-lime:        var(--lime);
+
+  --color-ink:         var(--ink);
+  --color-ink-soft:    var(--ink-soft);
+  --color-muted:       var(--muted);
+  --color-border:      var(--border);
+
+  --color-red:         var(--red);
+  --color-red-pale:    var(--red-pale);
+  --color-amber:       var(--amber);
+  --color-amber-pale:  var(--amber-pale);
+  --color-blue:        var(--blue);
+  --color-blue-pale:   var(--blue-pale);
+}
