@@ -67,7 +67,7 @@ function HeroArt() {
 export default function Hero({ heading }: { heading?: React.ReactNode }) {
   return (
     <section
-      className={`relative overflow-hidden bg-green-dark flex items-end ${heading ? "h-100 sm:h-125" : "h-165 sm:h-190"}`}
+      className={`relative overflow-hidden bg-green-dark flex items-end ${heading ? "h-64 sm:h-125" : "h-165 sm:h-190"}`}
     >
       <HeroArt />
 
