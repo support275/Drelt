@@ -37,11 +37,11 @@ function useCountUp(target: number, duration = 1400) {
 function StatCard({ stat }: { stat: (typeof stats)[number] }) {
   const count = useCountUp(stat.target);
   return (
-    <div className="bg-[#356A4B] rounded-2xl px-6 py-7">
-      <strong className="font-sans font-bold text-white leading-none text-[40px] sm:text-[48px]">
+    <div className="group bg-[#356A4B] rounded-2xl px-6 py-7 transition-colors hover:bg-[#C8973A]">
+      <strong className="font-sans font-bold text-white leading-none text-[40px] sm:text-[48px] transition-colors group-hover:text-white">
         {stat.format(count)}
       </strong>
-      <span className="block text-white/50 font-semibold tracking-[0.12em] uppercase mt-3 text-[11px]">
+      <span className="block text-white/50 font-semibold tracking-[0.12em] uppercase mt-3 text-[11px] transition-colors group-hover:text-white/70">
         {stat.label}
       </span>
     </div>
