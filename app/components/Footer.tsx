@@ -112,7 +112,7 @@ export default function Footer() {
         <div className="mt-25 pt-16 text-[13px] text-white/70">
           <p>
             <span className="text-gold font-semibold">DREEF</span>
-            {" — Distributed Renewable Energy Enablement Fund"}
+            {" Distributed Renewable Energy Enhancement Facility"}
           </p>
           <p>
             183 Moshood Olugbani, Victoria Island, Lagos ·{" "}

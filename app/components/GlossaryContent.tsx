@@ -31,7 +31,7 @@ const terms = [
   {
     term: "DREEF",
     definition:
-      "Distributed Renewable Energy Enablement Fund — provides TA, grants and capacity building to bankability-stage DRE developers.",
+      "Distributed Renewable Energy Enhancement Facility — provides TA, grants and capacity building to bankability-stage DRE developers.",
   },
   {
     term: "DRELT",
