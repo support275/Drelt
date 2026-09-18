@@ -16,7 +16,7 @@ const terms = [
   {
     term: "CP",
     definition:
-      "Condition Precedent — a contractual requirement that must be satisfied before loan disbursement.",
+      "Condition Precedent — a contractual requirement that must be satisfied before financial close.",
   },
   {
     term: "DD",
@@ -31,7 +31,7 @@ const terms = [
   {
     term: "DREEF",
     definition:
-      "Distributed Renewable Energy Enhancement Facility — provides TA, grants and capacity building to bankability-stage DRE developers.",
+      "Distributed Renewable Energy Enhancement Facility — provides TA,  capacity building to bankability-stage DRE developers.",
   },
   {
     term: "DRELT",
@@ -138,11 +138,11 @@ const terms = [
     definition:
       "Special Purpose Vehicle — a ring-fenced legal entity created specifically for a project, to which contracts are novated.",
   },
-  {
-    term: "SHS",
-    definition:
-      "Standalone Solar System — small modular solar systems for households; formerly called Solar Home Systems.",
-  },
+  // {
+  //   term: "SHS",
+  //   definition:
+  //     "Standalone Solar System — small modular solar systems for households; formerly called Solar Home Systems.",
+  // },
   {
     term: "COD",
     definition:
