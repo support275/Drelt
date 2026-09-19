@@ -18,7 +18,7 @@ const classificationRows = [
       </>
     ),
     examples:
-      "Demand forecast validation; Permits and licences; FX hedging strategy; Insurance quotes",
+      "Demand forecast validation, Permits and licenses, FX hedging strategy, Insurance cover quotes",
     stage: "Due Diligence",
   },
   {
@@ -35,23 +35,22 @@ const classificationRows = [
 ];
 
 const businessModels = [
-  "Isolated Mini Grids",
-  "Interconnected Mini Grids",
-  "C&I / C&E Systems",
-  "Stand-Alone Solar (HH & SME)",
-  "Solar for Telecom Towers",
-  "Standalone Solar System (SHS)",
-  "Mesh Grid Systems",
-  "Battery-as-a-Service",
-  "E-Mobility Solutions",
-  "Revenue / Energy-as-a-Service Models",
+  "Isolated Mini-Grid",
+  "Interconnected Mini-Grid",
+  "Commercial & Industrial (C&I)",
+  "SaaS for Homes and Businesses",
+  "SaaS for Telecom Towers",
+  "Stand Alone Solar System",
+  "Mesh Grid",
+  "Battery as a service",
+  "E-Mobility (2W & 3W)",
+  "Productive Use EaaS",
 ];
 
 export default function ClassificationSection() {
   return (
     <section id="classification" className="bg-green-pale py-16 sm:py-20">
       <div className="max-w-360 mx-auto px-4 sm:px-6">
-
         {/* Classification Framework */}
         <h2 className="font-heading font-bold text-[#080808] text-[40px] mb-4">
           Classification Framework at a Glance
@@ -109,7 +108,6 @@ export default function ClassificationSection() {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

@@ -34,7 +34,7 @@ const sections: Section[] = [
         a: (
           <>
             {p(
-              "Ten business models are eligible: Isolated Mini Grids, Interconnected Mini Grids, C&I / C&E Systems, Stand-Alone Solar (Households & SMEs), Solar for Telecom Towers, Standalone Solar System (SHS), Mesh Grid Systems, Battery-as-a-Service, E-Mobility Solutions, and Energy-as-a-Service revenue models",
+              "Ten business models are eligible: Isolated Mini Grids, Interconnected Mini Grids, C&I / C&E Systems, Stand-Alone Solar (Households & SMEs), Solar for Telecom Towers, Mesh Grid Systems, Battery-as-a-Service, E-Mobility Solutions, and Energy-as-a-Service revenue models",
             )}
             {callout(
               <>
@@ -59,7 +59,7 @@ const sections: Section[] = [
         a: p(
           <>
             InfraCredit typically considers loan facilities from{" "}
-            <strong>₦500 million</strong> and above. Smaller projects may be
+            <strong>₦1 billion</strong> and above. Smaller projects may be
             aggregated under a portfolio structure.
           </>,
         ),
@@ -137,8 +137,8 @@ const sections: Section[] = [
         a: p(
           <>
             Full Ultimate Beneficial Ownership (UBO) disclosure reconciled with
-            CAC filings is a <strong>Pre-NBC Blocker</strong>. Offshore parents
-            must be fully identified and disclosed.
+            CAC filings is a <strong>Pre-NBC Blocker</strong>. Offshore parent
+            *shareholding structures* must be fully identified and disclosed.
           </>,
         ),
       },
@@ -163,9 +163,9 @@ const sections: Section[] = [
         q: "Do I need signed PPAs or exclusivity agreements?",
         a: p(
           <>
-            Yes. Executed agreements with at least
+            Yes. Executed agreements with a tenor of at least{" "}
             <strong>10 years</strong> are required. MoUs are insufficient and
-            will be flagged as a Pre-NBC Blocker.
+            will be flagged as a <strong>Pre-NBC Blocker</strong>.
           </>,
         ),
       },
@@ -205,6 +205,14 @@ const sections: Section[] = [
           "No anchor customers identified",
           "No plan for appliance financing/SME support",
           "Breakeven model only works if PUE scales instantly",
+        ]),
+      },
+      {
+        q: "How should PUE demand be modelled?",
+        a: list([
+          "Provide separate load profiles for residential vs PUE",
+          "Include tariff assumptions by segment",
+          "Add sensitivity scenarios (e.g., PUE at 50% of forecast)",
         ]),
       },
     ],
@@ -264,6 +272,70 @@ const sections: Section[] = [
         a: p(
           "InfraCredit provides a PID template through the DRELT portal. Sponsors may use their own format provided it covers all required sections: project overview, technical summary, financial projections, ESG, legal structure, and risk matrix.",
         ),
+      },
+    ],
+  },
+  {
+    title: "Project Rollout & Deployment",
+    faqs: [
+      {
+        q: "Can I present a pipeline of projects?",
+        a: p(
+          "Yes, but the submission must include a phased rollout plan with site locations, capacity, funding triggers, and deployment timelines",
+        ),
+      },
+      {
+        q: "What if the proposed deployment timeline is ambitious?",
+        a: p(
+          "Ambitious timelines may be considered if supported by EPC/OEM agreements or procurement schedules. Unsupported timelines are flagged.",
+        ),
+      },
+    ],
+  },
+  {
+    title: "Land, Permits & Regulatory Approvals",
+    faqs: [
+      {
+        q: "What land rights are needed?",
+        a: p("Irrevocable land titles or long-term leases"),
+      },
+      {
+        q: "Do permits need to be secured at submission?",
+        a: p(
+          "Permit/licence status and timelines must be disclosed. Full validation occurs during due diligence",
+        ),
+      },
+    ],
+  },
+  {
+    title: "Technical Capacity & Equipment",
+    faqs: [
+      {
+        q: "Do EPC/OEM partners need to be identified?",
+        a: p(
+          "Yes. EPC/OEM must be named with track record and warranties. Submissions with “TBD” are incomplete",
+        ),
+      },
+      {
+        q: "How is useful life vs tenor assessed?",
+        a: p(
+          "Asset life should broadly align with financing tenor. Detailed validation occurs during DD",
+        ),
+      },
+    ],
+  },
+  {
+    title: "ESG & Impact",
+    faqs: [
+      {
+        q: "How do I present ESG benefits?",
+        a: p(
+          "With quantifiable indicators such as GHG reductions, jobs created, and gender inclusion metrics. Vague statements are insufficient",
+        ),
+      },
+      {
+        q: "Do I need a battery recycling/end-of-life plan?",
+        a: p("Yes, required for projects with storage or EVs"),
       },
     ],
   },
@@ -327,8 +399,9 @@ export default function OriginationFAQsContent() {
       <div className="max-w-350 mx-auto px-4 sm:px-6">
         <div className="max-w-217 mx-auto">
           <p className="font-heading font-normal text-ink-soft mb-12 text-base leading-[26px] tracking-[-0.02em] max-w-125">
-            Consolidated FAQs to guide analysts and sponsors at origination and
-            early-stage screening.
+            This section provides consolidated Frequently Asked Questions (FAQs)
+            to guide analysts and sponsors in preparing project information at
+            the origination and early-stage screening phase
           </p>
 
           <div className="flex flex-col gap-16">

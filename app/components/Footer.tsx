@@ -123,14 +123,7 @@ export default function Footer() {
               pmt@dreef.org
             </a>
           </p>
-          <p>
-            <a
-              href="mailto:pmt@dreef.org"
-              className="hover:text-white transition-colors"
-            >
-              pmt@dreef.org
-            </a>
-          </p>
+
           <p className="text-xs mt-15 text-white/40">
             DRELT Master Handbook · Abridged Interactive Version · For
             authorised use within InfraCredit&apos;s DRE pipeline

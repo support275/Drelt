@@ -6,14 +6,15 @@ const pillars = [
   {
     icon: "🌿",
     title: "ESG Pillar",
-    description: "Environmental, Social & Governance compliance with IFC PS, AfDB and FCDO standards",
+    description:
+      "Environmental, Social & Governance compliance with IFC PS, AfDB and FCDO standards",
     checks: [
       "Battery & e-waste recycling and disposal plan",
-      "Gender inclusion: jobs, leadership, SME participation",
+      "Gender inclusion: jobs, leadership roles , and SME participation",
       "Human rights & supply chain compliance",
       "No forced labour; Xinjiang-linked panels ruled out",
       "Community consultation and tariff acceptance",
-      "Stakeholder engagement plan and grievance redress",
+      "Stakeholder engagement and grievance mechanism",
       "Climate resilience and adaptation measures",
     ],
     flags: [
@@ -24,16 +25,17 @@ const pillars = [
       "Weak supply chain disclosure",
     ],
     mitigants: [
-      "Require ESG management plan before NBC",
-      "Independent ESG DD during DD stage",
-      "Referral to DREEF TA for recycling and gender strategy",
-      "Compliance certificate with IFC PS and AfDB safeguards",
+      "Require submission of an ESG management plan before NBC",
+      "⁠Independent ESG due diligence during DD stage",
+      "⁠Referral to DREEF TA for recycling and gender strategy support",
+      "Require compliance certificate with IFC PS and AfDB safeguards",
     ],
     caseExample: (
       <>
-        A mini-grid developer applied to NBC but had no battery recycling plan. DRELT flagged this
-        as a <strong>Pre-NBC Blocker</strong>. The developer was referred to DREEF, which funded a
-        recycling partnership with an approved local waste handler. The gap was closed before NBC
+        A mini-grid developer applied to NBC but had no battery recycling plan.
+        DRELT flagged this as a <strong>Pre-NBC Blocker</strong>. The developer
+        was referred to DREEF, which funded a recycling partnership with an
+        approved local waste handler. The gap was closed before NBC
         re-submission.
       </>
     ),
@@ -41,22 +43,23 @@ const pillars = [
   {
     icon: "⚙️",
     title: "Technical Pillar",
-    description: "Validation of technical soundness, reliability and scalability of the proposed DRE project",
+    description:
+      "Validation of technical soundness, reliability and scalability of the proposed DRE project",
     checks: [
-      "EPC/OEM identified and contracted with track record",
+      "EPC/OEM identified and contracted with proven track record",
       "Demand forecast methodology linked to household survey data",
       "Pilot project benchmarking against projections",
-      "O&M capacity: billing, metering, collections, monitoring",
+      "O&M capacity: billing, metering, collections, monitoring systems",
       "Useful life of equipment consistent with debt tenor",
-      "Engineering designs (SLDs, load profiles, GIS maps)",
+      "⁠Engineering designs (SLDs, load profiles, GIS maps) provided",
       "NEMSA, SONCAP, COREN certifications provided",
     ],
     flags: [
-      "EPC/OEM listed as \"TBD\"",
+      'EPC/OEM listed as "TBD"',
       "Demand forecast not backed by raw survey data",
       "Forecasts double industry benchmarks",
       "O&M plan missing",
-      "No EPC or OEM warranties",
+      "No evidence of EPC or OEM warranties",
       "Useful life shorter than financing tenor",
     ],
     mitigants: [
@@ -67,21 +70,23 @@ const pillars = [
     ],
     caseExample: (
       <>
-        A developer proposed a 2MW mini-grid portfolio with EPC listed as TBD. DRELT flagged this
-        as a <strong>Pre-NBC Blocker</strong>. The project was paused until a qualified EPC with
-        local experience was identified and contracted.
+        A developer proposed a 2MW mini-grid portfolio with EPC listed as TBD.
+        DRELT flagged this as a <strong>Pre-NBC Blocker</strong>. The project
+        was paused until a qualified EPC with local experience was identified
+        and contracted.
       </>
     ),
   },
   {
     icon: "⚖️",
     title: "Legal Pillar",
-    description: "Enforceability of contracts and compliance with Nigerian and sub-national regulations",
+    description:
+      "Enforceability of contracts and compliance with Nigerian and sub-national regulations",
     checks: [
       "UBO disclosure and CAC filings reconciled",
       "PPA or exclusivity agreements executed (≥10 years)",
       "Land rights secured (lease, title, access)",
-      "Regulatory permits/licences (NERC, state-level)",
+      " ⁠Regulatory permits/licences (NERC, state-level electricity permit)",
       "Novation of contracts from Sponsor to SPV",
       "Dispute resolution provisions and litigation disclosure",
     ],
@@ -96,27 +101,29 @@ const pillars = [
       "Require full UBO disclosure before NBC",
       "CP: Registration of land leases and titles",
       "DD: Legal validation of contracts",
-      "Referral to InfraCredit legal panel for review",
+      "⁠ ⁠Referral to InfraCredit legal panel for independent review",
     ],
     caseExample: (
       <>
-        A solar developer submitted with only MoUs signed with communities. DRELT flagged this as a{" "}
-        <strong>Pre-NBC Blocker</strong>. The project was deferred until binding PPAs were executed
-        and registered with NERC.
+        A solar developer submitted with only MoUs signed with communities.
+        DRELT flagged this as a <strong>Pre-NBC Blocker</strong>. The project
+        was deferred until binding PPAs were executed and registered with NERC.
+        This improved enforceability and reduced legal risk.
       </>
     ),
   },
   {
     icon: "📊",
     title: "Finance Pillar",
-    description: "Financial viability, transparent models, adequate equity, and sustainable debt structure",
+    description:
+      "Financial viability, transparent models, adequate equity, and sustainable debt structure",
     checks: [
-      "Equity contribution ≥20% in cash with bank evidence",
+      "Equity contribution ≥20% in cash, with bank evidence",
       "Financial model reconciled with demand assumptions",
       "Sensitivity tests (20–30% downside demand)",
       "Subsidy/grant reliance disclosed and documented",
       "Historical financials of sponsor (audited + mgmt accounts)",
-      "DSCR ≥ 1.3x under base and stress scenarios",
+      "DSCR ≥ 1.25x under base and stress scenarios",
       "Debt tenor aligned with asset useful life",
     ],
     flags: [
@@ -134,9 +141,10 @@ const pillars = [
     ],
     caseExample: (
       <>
-        A sponsor presented equity backed only by a commitment letter with no cash evidence. DRELT
-        flagged this as a <strong>Pre-NBC Blocker</strong>. Disbursement was conditioned on a
-        verified cash deposit into an escrow account before financial close.
+        A sponsor presented equity backed only by a commitment letter with no
+        cash evidence. DRELT flagged this as a <strong>Pre-NBC Blocker</strong>.
+        Disbursement was conditioned on a verified cash deposit into an escrow
+        account before financial close.
       </>
     ),
   },
@@ -165,11 +173,13 @@ export default function PillarsContent() {
     <section id="pillars" className="bg-[#EFF2F0] py-16">
       <div className="max-w-350 mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-
           {/* Left: pillar list */}
           <div className="flex flex-col gap-5">
             {pillars.map((pillar, i) => (
-              <div key={pillar.title} className="bg-white rounded-2xl p-6 flex flex-col gap-3">
+              <div
+                key={pillar.title}
+                className="bg-white rounded-2xl p-6 flex flex-col gap-3"
+              >
                 <div className="w-12 h-12 rounded-xl bg-green-pale flex items-center justify-center text-xl shrink-0">
                   {pillar.icon}
                 </div>
@@ -177,7 +187,9 @@ export default function PillarsContent() {
                   <h3 className="font-heading font-bold text-green-dark text-lg mb-1">
                     {pillar.title}
                   </h3>
-                  <p className="text-ink-soft text-[13px] leading-relaxed">{pillar.description}</p>
+                  <p className="text-ink-soft text-[13px] leading-relaxed">
+                    {pillar.description}
+                  </p>
                 </div>
                 <button
                   onClick={() => setActive(i)}
@@ -212,10 +224,15 @@ export default function PillarsContent() {
                   <hr className="border-border" />
                   <DetailList title="Red Flags" items={activePillar.flags} />
                   <hr className="border-border" />
-                  <DetailList title="Mitigants" items={activePillar.mitigants} />
+                  <DetailList
+                    title="Mitigants"
+                    items={activePillar.mitigants}
+                  />
                   <hr className="border-border" />
                   <div>
-                    <p className="font-bold text-ink mb-3 text-[15px]">Mini Case Example</p>
+                    <p className="font-bold text-ink mb-3 text-[15px]">
+                      Mini Case Example
+                    </p>
                     <p className="text-ink-soft text-[15px] leading-relaxed">
                       {activePillar.caseExample}
                     </p>
@@ -228,7 +245,6 @@ export default function PillarsContent() {
               </div>
             )}
           </div>
-
         </div>
       </div>
     </section>
