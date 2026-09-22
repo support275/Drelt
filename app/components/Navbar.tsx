@@ -41,21 +41,26 @@ export default function Navbar() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-green-dark">
         {/* Row 1: logo + mobile hamburger */}
         <div className="border-b border-border/20">
-          <div className="max-w-[1440px] mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
+          <div className="max-w-[1440px] mx-auto px-4 sm:px-6 flex items-center justify-between h-20">
             <Link href="/" className="flex items-center shrink-0">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/drelt-logo.svg" alt="DRELT" className="h-14 w-auto" />
+              <img src="/drelt-logo.svg" alt="DRELT" className="h-16 w-auto" />
             </Link>
 
             {/* Hamburger button */}
             <button
               onClick={() => setMenuOpen((o) => !o)}
-              aria-label="Toggle menu"
-              className="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 rounded hover:bg-white/5 transition-colors"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+              className={`lg:hidden flex flex-col justify-center items-center w-11 h-11 gap-1.5 rounded-full ring-1 transition-all duration-300 active:scale-90 ${
+                menuOpen
+                  ? "bg-lime/15 ring-lime/40"
+                  : "bg-white/5 ring-white/10 hover:bg-white/10 hover:ring-white/25"
+              }`}
             >
-              <span className={`block h-0.5 w-6 bg-white rounded-full transition-all duration-300 origin-center ${menuOpen ? "rotate-45 translate-y-1.75" : ""}`} />
-              <span className={`block h-0.5 w-6 bg-white rounded-full transition-all duration-300 ${menuOpen ? "opacity-0 scale-x-0" : ""}`} />
-              <span className={`block h-0.5 w-6 bg-white rounded-full transition-all duration-300 origin-center ${menuOpen ? "-rotate-45 -translate-y-1.75" : ""}`} />
+              <span className={`block h-0.5 w-6 rounded-full transition-all duration-300 ease-[cubic-bezier(0.65,0,0.35,1)] ${menuOpen ? "bg-lime translate-y-2 rotate-45 delay-75" : "bg-white"}`} />
+              <span className={`block h-0.5 rounded-full bg-white transition-all duration-200 ${menuOpen ? "w-6 opacity-0 translate-x-3" : "w-4 opacity-100 delay-150"}`} />
+              <span className={`block h-0.5 w-6 rounded-full transition-all duration-300 ease-[cubic-bezier(0.65,0,0.35,1)] ${menuOpen ? "bg-lime -translate-y-2 -rotate-45 delay-75" : "bg-white"}`} />
             </button>
           </div>
         </div>
@@ -88,7 +93,7 @@ export default function Navbar() {
           onClick={() => setMenuOpen(false)}
           className={`absolute inset-0 bg-ink/70 backdrop-blur-sm transition-opacity duration-300 ${menuOpen ? "opacity-100" : "opacity-0"}`}
         />
-        <div className={`absolute top-16 left-0 right-0 bg-green-dark border-b border-border/30 transition-all duration-300 ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"}`}>
+        <div className={`absolute top-20 left-0 right-0 bg-green-dark border-b border-border/30 transition-all duration-300 ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"}`}>
           <nav className="max-w-350 mx-auto px-4 py-3 flex flex-col">
             {navLinks.map((link) => (
               <Link

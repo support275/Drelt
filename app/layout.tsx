@@ -74,7 +74,7 @@ export default function RootLayout({
       lang="en"
       className={`${dmSans.variable} ${playfairDisplay.variable} ${dmMono.variable} ${plusJakartaSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans pt-16 lg:pt-28">{children}</body>
+      <body className="min-h-full flex flex-col font-sans pt-20 lg:pt-32">{children}</body>
     </html>
   );
 }
