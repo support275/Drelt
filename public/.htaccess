@@ -1,0 +1,7 @@
+ErrorDocument 404 /404.html
+
+# Next.js emits this OG image with no file extension, so Apache would
+# otherwise serve it as octet-stream and social scrapers would reject it.
+<Files "opengraph-image">
+  ForceType image/png
+</Files>
